@@ -782,16 +782,15 @@ void APIPCamera::copyCameraSettingsToSceneCapture(UCameraComponent* src, USceneC
         FMinimalViewInfo camera_view_info;
         src->GetCameraView(/*DeltaTime =*/0.0f, camera_view_info);
 
-        const FPostProcessSettings& src_pp_settings = camera_view_info.PostProcessSettings;
         FPostProcessSettings& dst_pp_settings = dst->PostProcessSettings;
 
         FWeightedBlendables dst_weighted_blendables = dst_pp_settings.WeightedBlendables;
 
-        // Copy all of the post processing settings
-        dst_pp_settings = src_pp_settings;
+        // Copy view settings
+        dst->SetCameraView(camera_view_info);
 
         // But restore the original blendables
-        dst_pp_settings.WeightedBlendables = dst_weighted_blendables;
+        dst->PostProcessSettings.WeightedBlendables = dst_weighted_blendables;
     }
 }
 
