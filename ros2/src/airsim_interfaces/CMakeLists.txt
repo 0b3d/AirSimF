@@ -26,12 +26,14 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/CarState.msg"
   "msg/Altimeter.msg"
   "msg/Environment.msg"
+  "msg/CameraControls.msg"
   "srv/SetGPSPosition.srv"
   "srv/Takeoff.srv"
   "srv/TakeoffGroup.srv"
   "srv/Land.srv"
   "srv/LandGroup.srv"
   "srv/Reset.srv"
+  "srv/SetCameraLensandFilm.srv"
   "srv/SetLocalPosition.srv" DEPENDENCIES std_msgs geometry_msgs geographic_msgs
 )
 

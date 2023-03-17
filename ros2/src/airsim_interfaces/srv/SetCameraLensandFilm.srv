@@ -1,0 +1,6 @@
+int8 lens_index
+int8 film_index
+string camera_name
+string vehicle_name
+---
+bool success

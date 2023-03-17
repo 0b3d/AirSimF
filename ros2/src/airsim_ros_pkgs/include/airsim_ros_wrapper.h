@@ -23,6 +23,8 @@ STRICT_MODE_OFF //todo what does this do?
 #include <airsim_interfaces/srv/reset.hpp>
 #include <airsim_interfaces/srv/takeoff.hpp>
 #include <airsim_interfaces/srv/takeoff_group.hpp>
+//#include <airsim_interfaces/srv/setcameralensandfilm.hpp>  // camset
+//#include <airsim_interfaces/msg/cameracontrols.hpp>  // camset
 #include <airsim_interfaces/msg/vel_cmd.hpp>
 #include <airsim_interfaces/msg/vel_cmd_group.hpp>
 #include <airsim_interfaces/msg/car_controls.hpp>

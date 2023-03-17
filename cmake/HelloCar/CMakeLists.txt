@@ -23,3 +23,5 @@ AddExecutableSource()
 CommonTargetLink()
 target_link_libraries(${PROJECT_NAME} AirLib)
 target_link_libraries(${PROJECT_NAME} ${RPC_LIB})
+
+message(STATUS "foo include dir: ${AIRSIM_ROOT}")

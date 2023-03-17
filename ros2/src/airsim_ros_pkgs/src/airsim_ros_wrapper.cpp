@@ -444,6 +444,19 @@ bool AirsimROSWrapper::reset_srv_cb(std::shared_ptr<airsim_interfaces::srv::Rese
     return true; //todo
 }
 
+
+// bool AirsimROSWrapper::change_camera_lens_and_settings_srv_cb(std::shared_ptr<airsim_interfaces::srv::Reset::Request> request, std::shared_ptr<airsim_interfaces::srv::Reset::Response> response)
+// {
+//     unused(request);
+//     unused(response);
+//     std::lock_guard<std::mutex> guard(control_mutex_);
+
+//     airsim_client_->reset();
+//     return true; //todo
+// }
+
+
+
 tf2::Quaternion AirsimROSWrapper::get_tf2_quat(const msr::airlib::Quaternionr& airlib_quat) const
 {
     return tf2::Quaternion(airlib_quat.x(), airlib_quat.y(), airlib_quat.z(), airlib_quat.w());
@@ -1096,7 +1109,8 @@ void AirsimROSWrapper::update_commands()
     // Only camera rotation, no translation movement of camera
     if (has_gimbal_cmd_) {
         std::lock_guard<std::mutex> guard(control_mutex_);
-        airsim_client_->simSetCameraPose(gimbal_cmd_.camera_name, get_airlib_pose(0, 0, 0, gimbal_cmd_.target_quat), gimbal_cmd_.vehicle_name);
+        //airsim::types::CameraInfo camera_info = simGetCameraInfo(gimbal_cmd_.camera_name, gimbal_cmd_.vehicle_name, false)
+        airsim_client_->simSetCameraPose(gimbal_cmd_.camera_name, get_airlib_pose(0, 0, -2, gimbal_cmd_.target_quat), gimbal_cmd_.vehicle_name);
     }
 
     has_gimbal_cmd_ = false;

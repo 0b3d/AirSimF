@@ -1,0 +1,11 @@
+std_msgs/Header header
+string camera_name
+string vehicle_name
+float32 focal_length
+float32 focus_aperture
+float32 focus_distance
+bool manual_focus_enable
+bool focal_plane_enable
+geometry_msgs/Pose pose 
+geometry_msgs/Quaternion orientation
+bool external false

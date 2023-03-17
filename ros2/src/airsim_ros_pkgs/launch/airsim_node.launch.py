@@ -31,7 +31,11 @@ def generate_launch_description():
             package='airsim_ros_pkgs',
             executable='airsim_node',
             name='airsim_node',
-            output='screen',
+            output={
+                'stdout': 'screen',
+                'stderr': 'screen'
+            },
+            emulate_tty=True,
             parameters=[{
                 'is_vulkan': False,
                 'update_airsim_img_response_every_n_sec': 0.05,
